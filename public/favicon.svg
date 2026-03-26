@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">S and L Exteriors favicon</title>
+  <desc id="desc">Minimal roofline monogram icon in navy, white, and gold.</desc>
+
+  <rect width="64" height="64" rx="14" fill="#172235"/>
+
+  <!-- roof peak -->
+  <path d="M14 29L32 14L50 29" stroke="#F4F8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- monogram-inspired geometric mark -->
+  <path d="M22 40C22 36.7 24.7 34 28 34H35" stroke="#D59A63" stroke-width="4" stroke-linecap="round"/>
+  <path d="M35 34H28C25.8 34 24 32.2 24 30" stroke="#D59A63" stroke-width="4" stroke-linecap="round"/>
+  <path d="M40 24V44H50" stroke="#F4F8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
