@@ -2,15 +2,83 @@ import { useState } from "react";
 import { Phone, Send } from "lucide-react";
 import heroImage from "@/assets/hero-roofing.jpg";
 
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
 const Hero = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    if (formData.name.trim().length < 2) {
+      return "Please enter your full name.";
+    }
+
+    const phoneDigits = formData.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
+      return "Please enter a valid phone number.";
+    }
+
+    if (formData.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email.trim())) {
+        return "Please enter a valid email address.";
+      }
+    }
+
+    if (!formData.service) {
+      return "Please select a service.";
+    }
+
+    if (!FORMSPREE_ENDPOINT) {
+      return "Form is not configured yet. Please call us directly at (630) 825-4364.";
+    }
+
+    return "";
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", phone: "", email: "", service: "", message: "" });
+    setSubmitError("");
+
+    const validationError = validateForm();
+    if (validationError) {
+      setSubmitError(validationError);
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          service: formData.service,
+          message: formData.message.trim(),
+          source: "S and L Exteriors website",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setFormData({ name: "", phone: "", email: "", service: "", message: "" });
+    } catch {
+      setSubmitError("We couldn't send your request right now. Please call us at (630) 825-4364.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -90,6 +158,7 @@ const Hero = () => {
                     />
                   </div>
                   <select
+                    required
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow text-foreground"
@@ -107,11 +176,17 @@ const Hero = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow resize-none"
                   />
+
+                  {submitError && (
+                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{submitError}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-accent text-accent-foreground py-3.5 rounded-lg font-semibold hover:brightness-110 active:scale-[0.98] transition-all duration-200 shadow-md shadow-accent/25"
+                    disabled={isSubmitting}
+                    className="w-full bg-accent text-accent-foreground py-3.5 rounded-lg font-semibold hover:brightness-110 active:scale-[0.98] transition-all duration-200 shadow-md shadow-accent/25 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Request Free Estimate
+                    {isSubmitting ? "Sending..." : "Request Free Estimate"}
                   </button>
                 </form>
               )}
