@@ -15,11 +15,11 @@ const TrustBadges = () => {
         <ScrollReveal>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {badges.map((badge, i) => (
-              <div key={i} className="flex items-center gap-3 justify-center">
+              <div key={i} className="flex items-center justify-start gap-3 min-h-[56px]">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <badge.icon className="w-5 h-5 text-primary" />
                 </div>
-                <span className="text-sm font-semibold text-foreground">{badge.label}</span>
+                <span className="text-sm font-semibold text-foreground leading-snug">{badge.label}</span>
               </div>
             ))}
           </div>
