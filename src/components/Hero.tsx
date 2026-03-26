@@ -41,6 +41,7 @@ const Hero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
+
     console.log("[QuoteForm] handleSubmit fired");
     console.log("[QuoteForm] VITE_FORMSPREE_ENDPOINT exists:", Boolean(FORMSPREE_ENDPOINT));
 
@@ -68,6 +69,7 @@ const Hero = () => {
           source: "S and L Exteriors website",
         }),
       });
+
       console.log("[QuoteForm] response status:", response.status);
 
       if (!response.ok) {
