@@ -1,11 +1,12 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">S and L Exteriors favicon</title>
-  <desc id="desc">Minimal roofline favicon with SL initials.</desc>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="12" fill="#172235"/>
 
-  <rect width="64" height="64" rx="12" fill="#162235"/>
-  <path d="M14 31L32 16L50 31" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="20" y="31" width="24" height="17" rx="3" fill="#23324A" stroke="#F8FAFC" stroke-width="2"/>
+  <!-- bold roof -->
+  <path d="M16 30L32 16L48 30" stroke="#F4F8FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <text x="32" y="43" text-anchor="middle" fill="#F8FAFC" font-size="11" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="700">SL</text>
-  <rect x="14" y="52" width="36" height="3" rx="1.5" fill="#C8844A"/>
+  <!-- simple base -->
+  <rect x="22" y="30" width="20" height="14" rx="3" fill="#F4F8FF"/>
+
+  <!-- subtle accent -->
+  <rect x="28" y="34" width="8" height="10" rx="2" fill="#D59A63"/>
 </svg>
