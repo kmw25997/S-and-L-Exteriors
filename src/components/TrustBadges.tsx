@@ -10,7 +10,7 @@ const badges = [
 
 const TrustBadges = () => {
   return (
-    <section className="bg-secondary py-10">
+    <section className="bg-secondary py-6 lg:py-7">
       <div className="section-container section-padding">
         <ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
