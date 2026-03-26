@@ -1,0 +1,41 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">S and L Exteriors | Roofing, Siding, Painting | Hinckley, IL</title>
+  <desc id="desc">Open Graph preview image for S and L Exteriors contractor website.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#192334" />
+      <stop offset="1" stop-color="#111A28" />
+    </linearGradient>
+    <linearGradient id="panel" x1="140" y1="120" x2="1060" y2="510" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#223147" stop-opacity="0.75" />
+      <stop offset="1" stop-color="#1B2738" stop-opacity="0.75" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <rect x="120" y="96" width="960" height="438" rx="24" fill="url(#panel)" stroke="#3A4D66" stroke-opacity="0.65" />
+
+  <rect x="168" y="170" width="10" height="285" rx="5" fill="#C8844A" />
+
+  <g transform="translate(210 176)">
+    <path d="M0 100L110 12L220 100" stroke="#EAF1F9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="42" y="100" width="136" height="122" rx="8" stroke="#EAF1F9" stroke-width="10" />
+    <rect x="95" y="148" width="34" height="74" rx="4" fill="#C8844A" />
+  </g>
+
+  <text x="500" y="250" fill="#F7FAFF" font-size="76" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="700" letter-spacing="0.2">
+    S and L Exteriors
+  </text>
+
+  <text x="500" y="325" fill="#D6E2F0" font-size="36" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="500">
+    Roofing • Siding • Painting
+  </text>
+
+  <text x="500" y="382" fill="#FFFFFF" font-size="32" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="600">
+    Hinckley, IL
+  </text>
+
+  <rect x="500" y="420" width="370" height="8" rx="4" fill="#C8844A" opacity="0.9" />
+</svg>
