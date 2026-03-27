@@ -6,7 +6,14 @@ const Footer = () => {
       <div className="section-container section-padding">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-display text-xl text-background mb-3">S and L Exteriors</h3>
+            <div className="inline-flex items-center bg-white/90 rounded-md p-2 mb-3">
+              <img
+                src="/logo.png"
+                alt="S and L Exteriors"
+                className="w-40 sm:w-48 h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
             <p className="text-background/60 text-sm leading-relaxed">
               Professional roofing, siding, and painting services for homeowners in Hinckley, IL and surrounding areas.
             </p>

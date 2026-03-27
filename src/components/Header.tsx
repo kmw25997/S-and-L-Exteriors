@@ -14,8 +14,13 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="section-container section-padding flex items-center justify-between h-16 lg:h-20">
-        <a href="#" className="font-display text-xl lg:text-2xl text-primary tracking-tight">
-          S and L Exteriors
+        <a href="#" className="inline-flex items-center" aria-label="S and L Exteriors home">
+          <img
+            src="/logo.png"
+            alt="S and L Exteriors"
+            className="w-32 lg:w-44 h-auto object-contain"
+            loading="eager"
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
