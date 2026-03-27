@@ -18,7 +18,7 @@ const Header = () => {
           <img
             src="/logo.png"
             alt="S and L Exteriors"
-            className="w-32 lg:w-44 h-auto object-contain"
+            className="h-10 w-auto lg:h-12 object-contain"
             loading="eager"
           />
         </a>
