@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-6 animate-fade-up">
             <p className="text-sm font-semibold tracking-widest uppercase text-accent">
-              Hinckley, Illinois
+              Northern Illinois & Nashville, TN
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl text-primary-foreground leading-[1.08]">
               Roofing, Siding & Painting Done Right
