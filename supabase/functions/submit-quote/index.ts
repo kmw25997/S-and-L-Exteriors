@@ -54,6 +54,20 @@ Deno.serve(async (req) => {
       );
     }
 
+    // Send email notification to site owner
+    const quoteId = crypto.randomUUID();
+    const { error: emailError } = await supabase.functions.invoke("send-transactional-email", {
+      body: {
+        templateName: "new-quote-notification",
+        idempotencyKey: `quote-notify-${quoteId}`,
+        templateData: { name, phone, email: email || "", service, message: message || "" },
+      },
+    });
+
+    if (emailError) {
+      console.error("Email notification error (non-blocking):", emailError);
+    }
+
     console.log(`New quote request from ${name} (${phone}) for ${service}`);
 
     return new Response(
