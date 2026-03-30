@@ -13,6 +13,11 @@ const services = [
     description: "New siding installation and repairs that boost curb appeal and protect your home from the elements year-round.",
   },
   {
+    icon: Droplets,
+    title: "Gutters",
+    description: "Professional gutter installation, replacement, and repair to keep water flowing away from your home and foundation.",
+  },
+  {
     icon: PaintBucket,
     title: "Exterior Painting",
     description: "Refresh your home's look with expert exterior painting. Proper prep, premium paints, and clean, lasting results.",
