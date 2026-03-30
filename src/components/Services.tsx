@@ -1,4 +1,4 @@
-import { Home, Paintbrush, Layers, PaintBucket } from "lucide-react";
+import { Home, Paintbrush, Layers, PaintBucket, Droplets } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const services = [

@@ -20,7 +20,7 @@ const Hero = () => {
               Roofing, Siding & Painting Done Right
             </h1>
             <p className="text-lg text-primary-foreground/80 max-w-lg leading-relaxed">
-              Trusted by homeowners across DeKalb County. We protect and beautify your home with expert craftsmanship and honest service.
+              Trusted by homeowners across Northern Illinois and the greater Nashville, Tennessee area. We protect and beautify your home with expert craftsmanship and honest service.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <a href="tel:6308254364"

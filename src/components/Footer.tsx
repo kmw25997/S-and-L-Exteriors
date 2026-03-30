@@ -35,6 +35,7 @@ const Footer = () => {
             <ul className="space-y-1.5 text-sm text-background/60">
               <li>Roofing</li>
               <li>Siding</li>
+              <li>Gutters</li>
               <li>Exterior Painting</li>
               <li>Interior Painting</li>
             </ul>

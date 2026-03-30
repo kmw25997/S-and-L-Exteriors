@@ -4,9 +4,9 @@ import ScrollReveal from "./ScrollReveal";
 const reasons = [
   { title: "Owner-Operated", detail: "Ryan Salazar is on every job — you deal directly with the owner, not a middleman." },
   { title: "Honest, Upfront Pricing", detail: "No hidden fees or surprises. You get a detailed, transparent estimate before any work begins." },
-  { title: "Quality Materials", detail: "We only use trusted, name-brand materials that stand up to Illinois weather for years to come." },
+  { title: "Quality Materials", detail: "We only use trusted, name-brand materials built to last through every season." },
   { title: "Clean Job Sites", detail: "We treat your property with respect — thorough cleanup after every project, guaranteed." },
-  { title: "Local & Reliable", detail: "Based right here in Hinckley. We're your neighbors, and our reputation is everything." },
+  { title: "Local & Reliable", detail: "Proudly serving Northern Illinois and the Nashville, TN area. Our reputation is everything." },
   { title: "Free Inspections", detail: "Not sure what you need? We'll come out and assess your home at absolutely no cost." },
 ];
 
