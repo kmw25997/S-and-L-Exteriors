@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
             <img
-              src="/logo.png"
+              src="/logo-white.png"
               alt="S and L Exteriors"
               className="h-12 w-auto object-contain mb-3"
               loading="lazy"
