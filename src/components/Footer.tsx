@@ -13,7 +13,7 @@ const Footer = () => {
               loading="lazy"
             />
             <p className="text-background/60 text-sm leading-relaxed">
-              Professional roofing, siding, and painting services for homeowners in Hinckley, IL and surrounding areas.
+              Professional roofing, siding, gutters, and painting services proudly serving homeowners across Northern Illinois and the greater Nashville, Tennessee area.
             </p>
           </div>
           <div>
@@ -26,7 +26,7 @@ const Footer = () => {
                 <Mail className="w-4 h-4" /> freeinsp.sle@gmail.com
               </a>
               <div className="flex items-center gap-2 text-background/60 text-sm">
-                <MapPin className="w-4 h-4" /> Hinckley, Illinois
+                <MapPin className="w-4 h-4" /> Northern Illinois & Nashville, TN
               </div>
             </div>
           </div>
@@ -35,6 +35,7 @@ const Footer = () => {
             <ul className="space-y-1.5 text-sm text-background/60">
               <li>Roofing</li>
               <li>Siding</li>
+              <li>Gutters</li>
               <li>Exterior Painting</li>
               <li>Interior Painting</li>
             </ul>

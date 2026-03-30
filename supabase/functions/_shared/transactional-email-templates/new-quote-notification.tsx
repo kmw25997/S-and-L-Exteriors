@@ -17,6 +17,7 @@ interface NewQuoteNotificationProps {
 const serviceLabels: Record<string, string> = {
   'roofing': 'Roofing',
   'siding': 'Siding',
+  'gutters': 'Gutters',
   'exterior-painting': 'Exterior Painting',
   'interior-painting': 'Interior Painting',
 }

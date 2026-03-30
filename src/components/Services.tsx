@@ -1,4 +1,4 @@
-import { Home, Paintbrush, Layers, PaintBucket } from "lucide-react";
+import { Home, Paintbrush, Layers, PaintBucket, Droplets } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const services = [
@@ -11,6 +11,11 @@ const services = [
     icon: Layers,
     title: "Siding",
     description: "New siding installation and repairs that boost curb appeal and protect your home from the elements year-round.",
+  },
+  {
+    icon: Droplets,
+    title: "Gutters",
+    description: "Professional gutter installation, replacement, and repair to keep water flowing away from your home and foundation.",
   },
   {
     icon: PaintBucket,
