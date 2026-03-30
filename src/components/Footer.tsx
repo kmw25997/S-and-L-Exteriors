@@ -26,7 +26,7 @@ const Footer = () => {
                 <Mail className="w-4 h-4" /> freeinsp.sle@gmail.com
               </a>
               <div className="flex items-center gap-2 text-background/60 text-sm">
-                <MapPin className="w-4 h-4" /> Hinckley, Illinois
+                <MapPin className="w-4 h-4" /> Northern Illinois & Nashville, TN
               </div>
             </div>
           </div>
