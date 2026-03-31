@@ -58,7 +58,6 @@ export const template = {
   component: NewQuoteNotificationEmail,
   subject: (data: Record<string, any>) =>
     `New Quote: ${data.name || 'Customer'} — ${data.service ? (serviceLabels[data.service] || data.service) : 'Service Request'}`,
-  to: 'kmw25997@gmail.com',
   displayName: 'New quote notification',
   previewData: {
     name: 'John Smith',
