@@ -101,6 +101,24 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_rate_limits: {
+        Row: {
+          created_at: string
+          id: string
+          ip_address: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ip_address: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ip_address?: string
+        }
+        Relationships: []
+      }
       quote_requests: {
         Row: {
           created_at: string

@@ -11,9 +11,20 @@ const QuoteSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
   phone: z.string().trim().min(10, "Phone must be at least 10 digits").max(20),
   email: z.string().trim().email("Invalid email").max(255).optional().or(z.literal("")),
-  service: z.enum(["roofing", "siding", "exterior-painting", "interior-painting"]),
+  service: z.enum(["roofing", "siding", "gutters", "exterior-painting", "interior-painting"]),
   message: z.string().trim().max(2000).optional().or(z.literal("")),
 });
+
+const RATE_LIMIT_WINDOW_MINUTES = 60;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+
+function getClientIp(req: Request): string {
+  return (
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown"
+  );
+}
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -38,6 +49,30 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
+    // --- Rate limiting by IP ---
+    const clientIp = getClientIp(req);
+    const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW_MINUTES * 60 * 1000).toISOString();
+
+    const { count, error: countError } = await supabase
+      .from("quote_rate_limits")
+      .select("*", { count: "exact", head: true })
+      .eq("ip_address", clientIp)
+      .gte("created_at", windowStart);
+
+    if (countError) {
+      console.error("Rate limit check error:", countError);
+    } else if ((count ?? 0) >= RATE_LIMIT_MAX_REQUESTS) {
+      console.warn(`Rate limit exceeded for IP: ${clientIp}`);
+      return new Response(
+        JSON.stringify({ error: "Too many requests. Please try again later or call us at (630) 825-4364." }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Record this request for rate limiting
+    await supabase.from("quote_rate_limits").insert({ ip_address: clientIp });
+
+    // --- Insert quote request ---
     const { error: dbError } = await supabase.from("quote_requests").insert({
       name,
       phone,
