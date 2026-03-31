@@ -43,7 +43,14 @@ const QuoteForm = () => {
         },
       });
 
-      if (error) throw error;
+      if (error) {
+        // Check for rate limiting (edge function returns 429 wrapped in FunctionsHttpError)
+        if (data?.error?.includes("Too many requests")) {
+          setSubmitError(data.error);
+          return;
+        }
+        throw error;
+      }
 
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 4000);
