@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+
+  useEffect(() => {
+    const handler = (e: CustomEvent<string>) => {
+      setFormData((prev) => ({ ...prev, service: e.detail }));
+    };
+    window.addEventListener("select-service", handler as EventListener);
+    return () => window.removeEventListener("select-service", handler as EventListener);
+  }, []);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");

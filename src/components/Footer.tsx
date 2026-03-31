@@ -6,12 +6,18 @@ const Footer = () => {
       <div className="section-container section-padding">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <img
-              src="/logo-white.png"
-              alt="S and L Exteriors"
-              className="h-12 w-auto object-contain mb-3"
-              loading="lazy"
-            />
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              className="inline-block"
+            >
+              <img
+                src="/logo-white.png"
+                alt="S and L Exteriors"
+                className="h-12 w-auto object-contain mb-3"
+                loading="lazy"
+              />
+            </a>
             <p className="text-background/60 text-sm leading-relaxed">
               Professional roofing, siding, gutters, and painting services proudly serving homeowners across Northern Illinois and the greater Nashville, Tennessee area.
             </p>
@@ -32,12 +38,27 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-semibold text-background text-sm mb-3">Services</h4>
-            <ul className="space-y-1.5 text-sm text-background/60">
-              <li>Roofing</li>
-              <li>Siding</li>
-              <li>Gutters</li>
-              <li>Exterior Painting</li>
-              <li>Interior Painting</li>
+            <ul className="space-y-1.5 text-sm">
+              {[
+                { label: "Roofing", value: "roofing" },
+                { label: "Siding", value: "siding" },
+                { label: "Gutters", value: "gutters" },
+                { label: "Exterior Painting", value: "exterior-painting" },
+                { label: "Interior Painting", value: "interior-painting" },
+              ].map((s) => (
+                <li key={s.value}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.dispatchEvent(new CustomEvent("select-service", { detail: s.value }));
+                      document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="text-background/60 hover:text-accent transition-colors cursor-pointer"
+                  >
+                    {s.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
