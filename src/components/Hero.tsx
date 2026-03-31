@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
 
           <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
-            <div id="quote-form" className="bg-card rounded-2xl p-6 sm:p-8 shadow-2xl">
+            <div id="quote-form" className="bg-card rounded-2xl p-6 sm:p-8 shadow-2xl scroll-mt-24">
               <h2 className="font-display text-2xl text-foreground mb-1">Get Your Free Estimate</h2>
               <p className="text-muted-foreground text-sm mb-6">No obligation. We'll get back to you within 24 hours.</p>
               <QuoteForm />
