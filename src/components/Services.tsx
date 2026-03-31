@@ -43,13 +43,20 @@ const Services = () => {
         <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, i) => (
             <ScrollReveal key={i} delay={i * 80}>
-              <div className="group bg-card border border-border rounded-xl p-8 hover:shadow-xl hover:shadow-primary/5 transition-shadow duration-300">
+              <button
+                type="button"
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("select-service", { detail: service.value }));
+                  document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group bg-card border border-border rounded-xl p-8 hover:shadow-xl hover:shadow-primary/5 transition-shadow duration-300 text-left w-full cursor-pointer"
+              >
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
                   <service.icon className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="font-display text-xl text-foreground mb-2">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
-              </div>
+              </button>
             </ScrollReveal>
           ))}
         </div>
