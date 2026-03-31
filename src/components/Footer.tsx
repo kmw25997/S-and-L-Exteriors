@@ -38,12 +38,27 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-semibold text-background text-sm mb-3">Services</h4>
-            <ul className="space-y-1.5 text-sm text-background/60">
-              <li>Roofing</li>
-              <li>Siding</li>
-              <li>Gutters</li>
-              <li>Exterior Painting</li>
-              <li>Interior Painting</li>
+            <ul className="space-y-1.5 text-sm">
+              {[
+                { label: "Roofing", value: "roofing" },
+                { label: "Siding", value: "siding" },
+                { label: "Gutters", value: "gutters" },
+                { label: "Exterior Painting", value: "exterior-painting" },
+                { label: "Interior Painting", value: "interior-painting" },
+              ].map((s) => (
+                <li key={s.value}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.dispatchEvent(new CustomEvent("select-service", { detail: s.value }));
+                      document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="text-background/60 hover:text-accent transition-colors cursor-pointer"
+                  >
+                    {s.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

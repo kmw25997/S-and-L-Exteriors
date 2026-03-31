@@ -5,26 +5,31 @@ const services = [
   {
     icon: Home,
     title: "Roofing",
+    value: "roofing",
     description: "Complete roof replacement, repairs, and inspections. We use high-quality materials to keep your home safe and dry for decades.",
   },
   {
     icon: Layers,
     title: "Siding",
+    value: "siding",
     description: "New siding installation and repairs that boost curb appeal and protect your home from the elements year-round.",
   },
   {
     icon: Droplets,
     title: "Gutters",
+    value: "gutters",
     description: "Professional gutter installation, replacement, and repair to keep water flowing away from your home and foundation.",
   },
   {
     icon: PaintBucket,
     title: "Exterior Painting",
+    value: "exterior-painting",
     description: "Refresh your home's look with expert exterior painting. Proper prep, premium paints, and clean, lasting results.",
   },
   {
     icon: Paintbrush,
     title: "Interior Painting",
+    value: "interior-painting",
     description: "Transform any room with precise interior painting. From single rooms to whole-home refreshes, we deliver flawless finishes.",
   },
 ];
