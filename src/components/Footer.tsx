@@ -6,12 +6,18 @@ const Footer = () => {
       <div className="section-container section-padding">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <img
-              src="/logo-white.png"
-              alt="S and L Exteriors"
-              className="h-12 w-auto object-contain mb-3"
-              loading="lazy"
-            />
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              className="inline-block"
+            >
+              <img
+                src="/logo-white.png"
+                alt="S and L Exteriors"
+                className="h-12 w-auto object-contain mb-3"
+                loading="lazy"
+              />
+            </a>
             <p className="text-background/60 text-sm leading-relaxed">
               Professional roofing, siding, gutters, and painting services proudly serving homeowners across Northern Illinois and the greater Nashville, Tennessee area.
             </p>
