@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+  const nameInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handler = (e: CustomEvent<string>) => {
       setFormData((prev) => ({ ...prev, service: e.detail }));
+      setTimeout(() => nameInputRef.current?.focus(), 300);
     };
     window.addEventListener("select-service", handler as EventListener);
     return () => window.removeEventListener("select-service", handler as EventListener);
@@ -87,7 +89,7 @@ const QuoteForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <input type="text" placeholder="Full Name" required value={formData.name}
+      <input ref={nameInputRef} type="text" placeholder="Full Name" required value={formData.name}
         onChange={(e) => setFormData({ ...formData, name: e.target.value })} className={inputClass} />
       <div className="grid sm:grid-cols-2 gap-4">
         <input type="tel" placeholder="Phone Number" required value={formData.phone}
