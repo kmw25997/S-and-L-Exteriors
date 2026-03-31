@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+  const nameInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handler = (e: CustomEvent<string>) => {
       setFormData((prev) => ({ ...prev, service: e.detail }));
+      setTimeout(() => nameInputRef.current?.focus(), 300);
     };
     window.addEventListener("select-service", handler as EventListener);
     return () => window.removeEventListener("select-service", handler as EventListener);
