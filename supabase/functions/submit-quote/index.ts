@@ -89,18 +89,24 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Send email notification to site owner
+    // Send email notification to both site owners
     const quoteId = crypto.randomUUID();
-    const { error: emailError } = await supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "new-quote-notification",
-        idempotencyKey: `quote-notify-${quoteId}`,
-        templateData: { name, phone, email: email || "", service, message: message || "" },
-      },
-    });
+    const notifyRecipients = ["kmw25997@gmail.com", "freeinsp.sle@gmail.com"];
+    const emailTemplateData = { name, phone, email: email || "", service, message: message || "" };
 
-    if (emailError) {
-      console.error("Email notification error (non-blocking):", emailError);
+    for (const recipient of notifyRecipients) {
+      const { error: emailError } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "new-quote-notification",
+          recipientEmail: recipient,
+          idempotencyKey: `quote-notify-${quoteId}-${recipient}`,
+          templateData: emailTemplateData,
+        },
+      });
+
+      if (emailError) {
+        console.error(`Email notification error for ${recipient} (non-blocking):`, emailError);
+      }
     }
 
     console.log(`New quote request from ${name} (${phone}) for ${service}`);
