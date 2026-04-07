@@ -4,11 +4,13 @@ import ScrollReveal from "./ScrollReveal";
 const areas = [
   {
     region: "Northern Illinois",
-    cities: ["Hinckley", "DeKalb", "Sycamore", "Sandwich", "Yorkville", "Aurora", "Naperville", "Joliet", "Plano"],
+    description: "Proudly serving Northern Illinois and surrounding communities across the region.",
+    tags: ["Chicagoland Area", "Northern Illinois", "Surrounding Communities"],
   },
   {
-    region: "Nashville, TN Area",
-    cities: ["Nashville", "Franklin", "Murfreesboro", "Hendersonville", "Lebanon", "Gallatin", "Mt. Juliet", "Brentwood"],
+    region: "Greater Nashville Area",
+    description: "Providing services throughout the greater Nashville area and nearby communities.",
+    tags: ["Nashville", "Middle Tennessee", "Surrounding Areas"],
   },
 ];
 
