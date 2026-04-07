@@ -5,8 +5,13 @@ import QuoteForm from "./QuoteForm";
 const Hero = () => {
   return (
     <section className="relative pt-16 lg:pt-20">
-      <div className="absolute inset-0">
-        <img src={heroImage} alt="Professional roofing work by S and L Exteriors" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={heroImage}
+          alt="Professional roofing work by S and L Exteriors"
+          className="w-full h-full object-cover will-change-transform"
+          style={{ transform: "translateZ(0)" }}
+        />
         <div className="absolute inset-0 bg-primary/80" />
       </div>
 
@@ -24,12 +29,12 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <a href="tel:6308254364"
-                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:brightness-110 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-accent/30">
+                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:brightness-110 active:scale-[0.97] transition-all duration-200 shadow-lg shadow-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
               <a href="#services"
-                className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary-foreground/10 active:scale-[0.97] transition-all duration-200">
+                className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary-foreground/10 active:scale-[0.97] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-foreground">
                 Our Services
               </a>
             </div>
