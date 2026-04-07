@@ -46,7 +46,7 @@ const Reviews = () => {
                 ))}
               </div>
               <span className="font-semibold text-foreground text-sm">{avgRating.toFixed(1)}</span>
-              <span className="text-muted-foreground text-sm">({reviews.length} reviews)</span>
+              <span className="text-muted-foreground text-sm">reviews</span>
             </div>
           </div>
         </ScrollReveal>
