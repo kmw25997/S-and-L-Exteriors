@@ -35,10 +35,11 @@ const ServiceAreaMap = () => {
                   </div>
                   <h3 className="font-display text-xl text-foreground">{area.region}</h3>
                 </div>
+                <p className="text-muted-foreground text-sm mb-4">{area.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {area.cities.map((city) => (
-                    <span key={city} className="px-3 py-1.5 bg-secondary text-foreground/80 text-sm rounded-full">
-                      {city}
+                  {area.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1.5 bg-secondary text-foreground/80 text-sm rounded-full">
+                      {tag}
                     </span>
                   ))}
                 </div>
